@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Madi Raasch</title>
+  <link rel="stylesheet" href="style.css?v=1.1">
+  <style>
+    .contact-terminal {
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 2.5rem 2rem 2rem 2rem;
+      max-width: 600px;
+      margin: 3rem auto 0 auto;
+      font-family: 'Fira Mono', 'Consolas', monospace;
+      position: relative;
+      z-index: 2;
+      text-align: left;
+    }
+    .contact-terminal .prompt {
+      color: #a259f7;
+      font-weight: bold;
+      margin-right: 0.5em;
+    }
+    .contact-terminal .command {
+      color: #00ffe7;
+    }
+    .contact-terminal .output {
+      color: #e6e6e6;
+      margin-top: 1.2em;
+      font-size: 1.1em;
+    }
+    .contact-terminal .email-link {
+      color: #00ffe7;
+      font-weight: bold;
+      text-decoration: underline;
+      font-size: 1.15em;
+      word-break: break-all;
+    }
+    .contact-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(90deg, #232336 0 1px, transparent 1px 80px), repeating-linear-gradient(180deg, #232336 0 1px, transparent 1px 80px);
+      opacity: 0.18;
+      animation: gridmove 8s linear infinite;
+    }
+    @keyframes gridmove {
+      0% { background-position: 0 0, 0 0; }
+      100% { background-position: 80px 80px, 80px 80px; }
+    }
+    .contact-subtitle {
+      color: #a259f7;
+      text-align: center;
+      margin-top: 2.5rem;
+      font-size: 1.15em;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="topnav">
+    <ul>
+      <li><a href="about.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">About</a></li>
+      <li><a href="osint.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">OSINT</a></li>
+      <li><a href="poli-sci.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">Political Science</a></li>
+      <li><a href="organizing.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">Organizing</a></li>
+      <li><a href="elected.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">Elected</a></li>
+      <li><a href="campaigning.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">Campaigning</a></li>
+      <li><a href="life.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">Life</a></li>
+      <li><a href="contact.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="contact-bg"></div>
+  <main>
+    <div class="contact-terminal">
+      <div class="output">Want to collaborate or hire me? <a class="email-link" href="mailto:your.email@example.com">your.email@example.com</a></div>
+      <div style="height:0.8rem;"></div>
+      <div class="output">Book a 30-min video chat: <a class="email-link" href="https://calendly.com/your-calendly-id/chat" target="_blank">calendly.com/your-calendly-id/chat</a></div>
+    </div>
+    <div class="contact-subtitle">Let's do something impactful together.</div>
+    <div style="text-align:center;margin-top:2.5rem;">
+      <a href="Madison_Raasch_CV.pdf" download style="color:#00ffe7;text-decoration:underline;font-size:1em;">&#128196; Download CV (PDF)</a>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html> 

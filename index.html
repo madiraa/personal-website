@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madi Raasch | Personal Site</title>
+  <link rel="stylesheet" href="style.css?v=1.1">
+  <style>
+    #matrix-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      display: block;
+    }
+    main, nav.topnav {
+      position: relative;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <nav class="topnav">
+    <ul>
+      <li><a href="about.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">About</a></li>
+      <li><a href="osint.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">OSINT</a></li>
+      <li><a href="poli-sci.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">Political Science</a></li>
+      <li><a href="organizing.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">Organizing</a></li>
+      <li><a href="elected.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">Elected</a></li>
+      <li><a href="campaigning.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">Campaigning</a></li>
+      <li><a href="life.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">Life</a></li>
+      <li><a href="contact.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">Contact</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section id="landing">
+      <div id="terminal-typing" style="margin-bottom:2.5rem;"></div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+  <script>
+    // Terminal typing effect for landing page
+    const terminalDiv = document.getElementById('terminal-typing');
+    const lines = [
+      { prompt: '$', text: 'whoami', output: 'Madi Raasch' },
+      { prompt: '$', text: 'field --expertise', output: 'political science, data science, activism, osint' },
+      { prompt: '$', text: 'echo "bio"', output: 'political scientist, organizer and analyst interested in aiding in the improvement of the human condition' },
+      { prompt: '$', text: 'echo "welcome"', output: 'Welcome to my digital lair.' },
+      { prompt: '$', text: 'echo "explore"', output: 'Explore my work in OSINT, political science, organizing, and more.' },
+      { prompt: '$', text: 'ls', output: 'about.html  osint.html  poli-sci.html  organizing.html  elected.html  campaigning.html  life.html  contact.html' },
+      { prompt: '$', text: 'echo "Use the navigation above to visit each section."', output: '' }
+    ];
+    let lineIdx = 0, charIdx = 0, typing = true, outIdx = 0;
+    function typeTerminal() {
+      if (lineIdx >= lines.length) return;
+      let html = '';
+      for (let i = 0; i < lineIdx; i++) {
+        html += `<div><span style='color:#a259f7;font-weight:bold;'>${lines[i].prompt}</span> <span style='color:#00ffe7;'>${lines[i].text}</span></div>`;
+        html += lines[i].output ? `<div style='color:#e6e6e6;margin-left:2em;'>${lines[i].output}</div>` : '';
+      }
+      if (typing) {
+        html += `<div><span style='color:#a259f7;font-weight:bold;'>${lines[lineIdx].prompt}</span> <span style='color:#00ffe7;'>${lines[lineIdx].text.slice(0, charIdx)}<span class='terminal-cursor'>█</span></span></div>`;
+      } else {
+        html += `<div><span style='color:#a259f7;font-weight:bold;'>${lines[lineIdx].prompt}</span> <span style='color:#00ffe7;'>${lines[lineIdx].text}</span></div>`;
+        html += lines[lineIdx].output ? `<div style='color:#e6e6e6;margin-left:2em;'>${lines[lineIdx].output.slice(0, outIdx)}<span class='terminal-cursor'>█</span></div>` : '';
+      }
+      terminalDiv.innerHTML = html;
+      if (typing) {
+        if (charIdx < lines[lineIdx].text.length) {
+          charIdx++;
+          setTimeout(typeTerminal, 60);
+        } else {
+          typing = false;
+          outIdx = 0;
+          setTimeout(typeTerminal, 400);
+        }
+      } else {
+        if (outIdx < (lines[lineIdx].output ? lines[lineIdx].output.length : 0)) {
+          outIdx++;
+          setTimeout(typeTerminal, 30);
+        } else {
+          lineIdx++;
+          charIdx = 0;
+          typing = true;
+          setTimeout(typeTerminal, 600);
+        }
+      }
+    }
+    typeTerminal();
+  </script>
+</body>
+</html> 
