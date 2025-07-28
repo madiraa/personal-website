@@ -45,21 +45,21 @@
 <body>
   <nav class="topnav">
     <ul>
-      <li><a href="about.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">About</a></li>
-      <li><a href="osint.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">OSINT</a></li>
-      <li><a href="poli-sci.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">Political Science</a></li>
-      <li><a href="organizing.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">Organizing</a></li>
-      <li><a href="elected.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">Elected</a></li>
-      <li><a href="campaigning.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">Campaigning</a></li>
-      <li><a href="life.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">Life</a></li>
-      <li><a href="contact.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">Contact</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="osint.html">OSINT</a></li>
+      <li><a href="poli-sci.html">Political Science</a></li>
+      <li><a href="organizing.html">Organizing</a></li>
+      <li><a href="elected.html">Elected</a></li>
+      <li><a href="campaigning.html">Campaigning</a></li>
+      <li><a href="life.html">Life</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
   <main>
     <section class="about-section">
       <h1 class="glitch" data-text="About Madi Raasch">About Madi Raasch</h1>
       <p class="about-highlight">Political Scientist | Data Scientist | Organizer | Analyst | OSINT Specialist</p>
-      <a href="Madi_Raasch_Resume.pdf" download class="about-highlight" style="display:inline-block;margin:1.2em 0 2em 0;padding:0.7em 1.5em;background:#232336;color:#00ffe7;border-radius:6px;font-weight:bold;text-decoration:none;box-shadow:0 2px 12px #00ffe766;transition:background 0.2s;">&#128196; Download Resume (PDF)</a>
+      <a id="download-resume" href="Madi_Raasch_Resume.pdf" download class="about-highlight" style="display:inline-block;margin:1.2em 0 2em 0;padding:0.7em 1.5em;background:#232336;color:#00ffe7;border-radius:6px;font-weight:bold;text-decoration:none;box-shadow:0 2px 12px #00ffe766;transition:background 0.2s;">&#128196; Download Resume (PDF)</a>
       <h3>Who I Am</h3>
       <p>
         I’m Madison, a political scientist, data scientist, and organizer passionate about using data, technology, and collective action to improve the human condition. My work bridges the worlds of research, activism, and open-source intelligence (OSINT).
@@ -94,5 +94,14 @@
     </section>
   </main>
   <script src="script.js"></script>
+  <script>
+    document.getElementById('download-resume').addEventListener('click', function(e) {
+      e.preventDefault();
+      showMatrixLoader();
+      setTimeout(() => {
+        window.location.href = this.href;
+      }, 1600);
+    });
+  </script>
 </body>
 </html> 

@@ -65,14 +65,14 @@
 <body>
   <nav class="topnav">
     <ul>
-      <li><a href="about.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">About</a></li>
-      <li><a href="osint.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">OSINT</a></li>
-      <li><a href="poli-sci.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">Political Science</a></li>
-      <li><a href="organizing.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">Organizing</a></li>
-      <li><a href="elected.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">Elected</a></li>
-      <li><a href="campaigning.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">Campaigning</a></li>
-      <li><a href="life.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">Life</a></li>
-      <li><a href="contact.html" onclick="if(!(event.ctrlKey||event.metaKey||event.button===1)){showMatrixLoader();}">Contact</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="osint.html">OSINT</a></li>
+      <li><a href="poli-sci.html">Political Science</a></li>
+      <li><a href="organizing.html">Organizing</a></li>
+      <li><a href="elected.html">Elected</a></li>
+      <li><a href="campaigning.html">Campaigning</a></li>
+      <li><a href="life.html">Life</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
   <div class="contact-bg"></div>
@@ -84,10 +84,19 @@
     </div>
     <div class="contact-subtitle">Let's do something impactful together.</div>
     <div style="text-align:center;margin-top:2.5rem;">
-      <a href="Madi_Raasch_Resume.pdf" download style="color:#00ffe7;text-decoration:underline;font-size:1em;">&#128196; Download Resume (PDF)</a>
+      <a id="download-resume-contact" href="Madi_Raasch_Resume.pdf" download style="color:#00ffe7;text-decoration:underline;font-size:1em;">&#128196; Download Resume (PDF)</a>
     </div>
   </main>
   <script src="script.js"></script>
+  <script>
+    document.getElementById('download-resume-contact').addEventListener('click', function(e) {
+      e.preventDefault();
+      showMatrixLoader();
+      setTimeout(() => {
+        window.location.href = this.href;
+      }, 1600);
+    });
+  </script>
 </body>
 </html>
 <!-- v1.1 --> 
