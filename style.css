@@ -151,8 +151,92 @@ img.profile {
   box-shadow: none;
 }
 @media (max-width: 800px) {
-  nav.topnav ul { gap: 1rem; }
-  main { padding: 1rem; }
+  nav.topnav {
+    padding: 0.5rem 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  nav.topnav ul { 
+    gap: 0.8rem;
+    white-space: nowrap;
+    min-width: max-content;
+    padding: 0 0.5rem;
+  }
+  nav.topnav ul li a {
+    font-size: 0.9rem;
+    padding: 0.3em 0.5em;
+    white-space: nowrap;
+  }
+  main { 
+    padding: 1rem;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  /* Mobile-specific adjustments for Stop the Billionaires page */
+  .current-action, .fellowship-info, .contact-section, .coming-soon {
+    margin: 1rem 0;
+    padding: 1rem;
+  }
+  .campaign-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .contact-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .contact-links a {
+    width: 100%;
+    text-align: center;
+    max-width: 250px;
+  }
+  .action-button {
+    width: 100%;
+    text-align: center;
+    margin: 1rem 0;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 600px) {
+  nav.topnav ul li a {
+    font-size: 0.85rem;
+    padding: 0.25em 0.4em;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+  h2 {
+    font-size: 1.4rem;
+  }
+  .emoji-header {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  nav.topnav {
+    padding: 0.5rem;
+  }
+  nav.topnav ul {
+    gap: 0.5rem;
+    padding: 0 0.25rem;
+  }
+  nav.topnav ul li a {
+    font-size: 0.8rem;
+    padding: 0.2em 0.3em;
+  }
+  main {
+    padding: 0.5rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
 }
 /* ====== Scrollbar ====== */
 ::-webkit-scrollbar { width: 8px; background: var(--bg); }
